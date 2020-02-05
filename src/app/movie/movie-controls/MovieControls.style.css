@@ -1,0 +1,10 @@
+.my-button {
+    background-color: rgb(69, 99, 182); 
+    border: none;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
