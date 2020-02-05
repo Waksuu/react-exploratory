@@ -1,4 +1,3 @@
-import { ThunkResult, Dispatcher } from "../../../common/redux/thunk/Thunk.type";
 import { MovieDTO } from "../data/Movie.dto";
 import { RetrieveMovieListAction, MovieListRetrieved, ClearMovieListAction, ClearMovieListRequest } from "./MovieListActions.type";
 import { getAllMovies } from "../data/Movie.service";

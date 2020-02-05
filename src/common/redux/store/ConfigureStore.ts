@@ -14,7 +14,5 @@ const configureStore = (initialState?: any) => {
 };
 
 const store = configureStore();
-(window as any).myStore = [];
-store.subscribe(() => (window as any).myStore.push(store.getState()));
 
 export default store;

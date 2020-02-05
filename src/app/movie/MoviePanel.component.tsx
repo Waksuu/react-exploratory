@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { MovieDTO } from './data/Movie.dto';
 import { AppState } from '../../common/redux/store/ConfigureStore';
-import { Dispatcher } from '../../common/redux/thunk/Thunk.type';
 import { retrieveMoviesAction, clearMovies } from './redux/Movie.action';
 import { connect } from 'react-redux';
 import { MovieList } from './movie-list/MovieList.component';
