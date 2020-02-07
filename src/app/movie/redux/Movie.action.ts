@@ -5,7 +5,7 @@ import { ThunkAction, ThunkDispatch } from "redux-thunk";
 import { AppState } from "../../../common/redux/store/ConfigureStore";
 import { AppActions } from "../../../common/redux/actions/AppActions.type";
 
-export const retrieveMoviesAction = (): ThunkAction<Promise<void>, AppState, undefined, AppActions> => {
+export const retrieveMoviesAction = (getAllMovies: () => Promise<MovieDTO[]>): ThunkAction<Promise<void>, AppState, undefined, AppActions> => {
     return async (dispatch: ThunkDispatch<AppState, any, AppActions>) => {
         const movies: MovieDTO[] = await getAllMoviesREST();
         dispatch(moviesRetrieved(movies));

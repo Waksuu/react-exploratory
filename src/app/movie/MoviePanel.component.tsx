@@ -7,6 +7,7 @@ import { MovieList } from './movie-list/MovieList.component';
 import { MovieControls } from './movie-controls/MovieControls.component';
 import { ThunkDispatch } from 'redux-thunk';
 import { AppActions } from '../../common/redux/actions/AppActions.type';
+import { getAllMoviesREST } from './data/Movie.service';
 
 type Props = LinkStateProps & LinkDispatchProps;
 
@@ -17,8 +18,8 @@ const MoviePanel: FC<Props> = (props: Props) => {
 
     return (
         <>
-             <MovieList movies={props.movies} />
-             <MovieControls clearMovies={props.clearMovies} />
+            <MovieList movies={props.movies} />
+            <MovieControls clearMovies={props.clearMovies} />
         </>
     );
 };
@@ -36,10 +37,14 @@ interface LinkDispatchProps {
     clearMovies: () => void;
 }
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<AppState, any, AppActions>): LinkDispatchProps => ({
-    retrieveMovies: () => dispatch(retrieveMoviesAction()),
+const mapDispatchToProps = (
+    getAllMovies: () => Promise<MovieDTO[]>
+    ) => (dispatch: ThunkDispatch<AppState, any, AppActions>): LinkDispatchProps => ({
+    retrieveMovies: () => dispatch(retrieveMoviesAction(getAllMovies)),
     clearMovies: () => dispatch(clearMovies())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePanel);
-
+export default connect(mapStateToProps, (
+        dispatch: ThunkDispatch<AppState, any, AppActions>
+    ) => mapDispatchToProps(getAllMoviesREST)(dispatch))
+(MoviePanel);
