@@ -1,6 +1,6 @@
 import { MovieDTO } from "./Movie.dto";
 
-export const getAllMovies = (): Promise<MovieDTO[]> => {
+export const getAllMoviesREST = (): Promise<MovieDTO[]> => {
     return Promise.resolve(moviesMock);
 }
 
