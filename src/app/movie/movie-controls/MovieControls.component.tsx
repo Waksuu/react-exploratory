@@ -9,6 +9,8 @@ type Props = MovieControlsProps;
 
 export const MovieControls: FC<Props> = (props: Props) => {
     return (
-        <button onClick={props.clearMovies} className="my-button">Clear movies!</button>
+        <button data-testid="clear-movies-button" onClick={props.clearMovies} className="my-button">
+            Clear movies!
+        </button>
     );
 };

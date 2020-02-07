@@ -38,7 +38,7 @@ interface LinkDispatchProps {
 }
 
 export const mapDispatchToProps = (
-    getAllMovies: () => Promise<MovieDTO[]>
+        getAllMovies: () => Promise<MovieDTO[]>
     ) => (dispatch: ThunkDispatch<AppState, any, AppActions>): LinkDispatchProps => ({
     retrieveMovies: () => dispatch(retrieveMoviesAction(getAllMovies)),
     clearMovies: () => dispatch(clearMovies())
