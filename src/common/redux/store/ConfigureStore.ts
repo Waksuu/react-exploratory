@@ -6,7 +6,7 @@ import {composeWithDevTools} from "redux-devtools-extension/developmentOnly";
 
 export type AppState = ReturnType<typeof rootReducer>;
 
-const configureStore = (initialState?: AppState) => {
+export const configureStore = (initialState?: AppState) => {
     return createStore(
         rootReducer,
         initialState,
