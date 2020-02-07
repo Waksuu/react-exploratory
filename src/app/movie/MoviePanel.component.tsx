@@ -11,7 +11,7 @@ import { getAllMoviesREST } from './data/Movie.service';
 
 type Props = LinkStateProps & LinkDispatchProps;
 
-const MoviePanel: FC<Props> = (props: Props) => {
+export const MoviePanel: FC<Props> = (props: Props) => {
     useEffect(() => {
         props.retrieveMovies();
     }, [])
@@ -28,7 +28,7 @@ interface LinkStateProps {
     movies: MovieDTO[];
 }
 
-const mapStateToProps = (state: AppState): LinkStateProps => ({
+export const mapStateToProps = (state: AppState): LinkStateProps => ({
     movies: state.movie.movies
 });
 
@@ -37,7 +37,7 @@ interface LinkDispatchProps {
     clearMovies: () => void;
 }
 
-const mapDispatchToProps = (
+export const mapDispatchToProps = (
     getAllMovies: () => Promise<MovieDTO[]>
     ) => (dispatch: ThunkDispatch<AppState, any, AppActions>): LinkDispatchProps => ({
     retrieveMovies: () => dispatch(retrieveMoviesAction(getAllMovies)),
