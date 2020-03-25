@@ -13,7 +13,7 @@ type Props = LinkStateProps & LinkDispatchProps;
 const MoviePanel: FC<Props> = (props: Props) => {
     useEffect(() => {
         props.retrieveMovies();
-    }, [])
+    }, []);
 
     return (
         <>
@@ -36,7 +36,7 @@ interface LinkDispatchProps {
     clearMovies: () => void;
 }
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<AppState, any, AppActions>): LinkDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<AppState, undefined, AppActions>): LinkDispatchProps => ({
     retrieveMovies: () => dispatch(retrieveMoviesAction()),
     clearMovies: () => dispatch(clearMovies())
 });
