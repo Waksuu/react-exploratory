@@ -11,7 +11,7 @@ import { Store } from "redux";
 
 describe("Movie Panel", () => {
     let mockStore: Store<AppState, AppActions>;
-    let MoviePanelMock: FC
+    let MoviePanelMock: FC;
 
     beforeEach(() => {
         mockStore = configureStore();
@@ -28,11 +28,11 @@ describe("Movie Panel", () => {
             <Provider store={mockStore}>
                 <MoviePanelMock />
             </Provider>
-        )
+        );
 
         // THEN
         expect(screen.queryByTestId("movie-list-component")).not.toBeEmpty();
-    })
+    });
 
     test("Should clear movies after pressing clear movies button", async () => {
         // GIVEN
@@ -40,7 +40,7 @@ describe("Movie Panel", () => {
             <Provider store={mockStore}>
                 <MoviePanelMock />
             </Provider>
-        )
+        );
 
         // WHEN
         fireEvent.click(screen.getByTestId("clear-movies-button"));
@@ -48,11 +48,9 @@ describe("Movie Panel", () => {
         // THEN
         expect(screen.queryByTestId("movie-list-component")).toBeEmpty();
     })
-})
+});
 
-const getAllMoviesMock = (): Promise<MovieDTO[]> => {
-    return Promise.resolve(mockMovies);
-}
+const getAllMoviesMock = (): Promise<MovieDTO[]> => Promise.resolve(mockMovies);
 
 const mockMovies: MovieDTO[] = [
     {
@@ -63,4 +61,4 @@ const mockMovies: MovieDTO[] = [
         id: 2,
         name: "Mock movie 2"
     },
-]
+];
